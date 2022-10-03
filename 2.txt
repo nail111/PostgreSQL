@@ -1,0 +1,27 @@
+String operators: 
+
+|| -> join two strings
+
+CONCAT() -> join strings
+
+LOWER(), UPPER(), LENGTH()
+
+----------------------------------------------------------------
+
+SELECT name || id AS fullname FROM users;
+
+SELECT name || ", " || id FROM users;
+
+SELECT CONCAT(name, ', ', id) FROM users;
+
+SELECT LENGTH(name) FROM users;
+
+----------------------------------------------------------------
+
+SELECT * FROM users WHERE id BETWEEN 1 AND 4;   == SELECT * FROM users WHERE id IN (1,4);  --> same
+
+SELECT * FROM users WHERE id NOT IN (1,4);
+
+SELECT * FROM users WHERE id IN (1,4) AND name = 'Jack';
+
+SELECT * FROM users WHERE id IN (1,4) OR name = 'Jack';
