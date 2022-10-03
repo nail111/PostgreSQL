@@ -1,0 +1,26 @@
+
+ON DELETE options:
+
+user_id INTEGER REFERENCES users(id) ON DELETE CASCADE  --> При удалении user, удаляются еще и его фотографии
+
+user_id INTEGER REFERENCES users(id) ON DELETE SET NULL  --> При удалении user, user_id в другой таблице становится NULL
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Join --> Создаёт значения путём объединения строк из разных связанных таблиц.
+
+Aggregation --> Просматривает множество строк и вычисляет одно значение. Такие слова как "most", "average", "least", являются признаком того, что 
+вам нужно использовать агрегацию.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Four kinds of join:
+
+INNER JOIN (or just JOIN): SELECT url, username FROM photos JOIN users ON users.id = photos.user_id;       --> photos ∩ users
+
+LEFT JOIN: SELECT url, username FROM PHOTOS LEFT JOIN users ON users.id = photos.user_id;                  --> photos \ users
+
+RIGHT JOIN: SELECT url, username FROM PHOTOS RIGHT JOIN users ON users.id = photos.user_id;                --> users \ photos
+
+FULL JOIN: SELECT url, username FROM PHOTOS FULL JOIN users ON users.id = photos.user_id;                  --> photos ∪ users
+
