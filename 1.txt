@@ -1,0 +1,26 @@
+
+CREATE TABLE employee(name VARCHAR(50),id INTEGER);
+
+----------------------------------------------------------------------
+
+DROP TABLE employee;
+
+----------------------------------------------------------------------
+
+INSERT INTO employee(name) values ('Nail'), ('Orxan');
+
+----------------------------------------------------------------------
+
+SELECT * FROM employee;
+
+SELECT * FROM anotherDB.employee;
+
+SELECT name, id FROM employee;
+
+SELECT * FROM employee WHERE id >=2 AND id <> 5;
+
+SELECT * FROM employee WHERE id = 5 OR id = 3;
+
+----------------------------------------------------------------------
+
+SELECT population/area AS Population_density FROM country;
