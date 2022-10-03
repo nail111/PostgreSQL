@@ -1,0 +1,34 @@
+
+Если у нас несколько связанных таблица:
+
+SELECT url, contents, username FROM comments JOIN photos ON photos.id = comments.photo_id JOIN users ON users.id = comments.user_id AND users.id = photos.user_id;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Оператор GROUP BY используется для группировки строк:
+
+SELECT user_id FROM users GROUP BY user_id; 
+
+SELECT user_id, COUNT (id) FROM users GROUP BY user_id; 
+
+Любой столбец, который используется в выражении SELECT (не считая столбцов, которые хранят результат агрегантных функций), должны быть указаны после оператора GROUP BY.
+Так, например, в случае выше стобец user_id указан и в выражении SELECT, и в выражении GROUP BY.
+И если в выражении SELECT производится выборка по одному или нескольким столбцам и также используются агрегатные функции, то необходимо использовать выражение GROUP BY.
+
+SELECT club_name, COUNT (id) FROM club;  --> Работать не будет!!!
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Агрегантные функции:
+
+SELECT MIN (id) FROM users;
+
+SELECT MAX (id) FROM users;
+
+SELECT AVG (id) FROM users;
+
+SELECT COUNT (id) FROM users;
+
+SELECT SUM (id) FROM users;
+
+
