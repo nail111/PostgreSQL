@@ -1,0 +1,36 @@
+
+UPDATE users SET username = 'Jack' WHERE id = 5;
+
+------------------------------------------------------------------------------------------------
+
+DELETE FROM users WHERE id = 5;
+
+------------------------------------------------------------------------------------------------
+
+TRUNCATE users;   --> delete all rows;
+
+------------------------------------------------------------------------------------------------
+
+ALTER TABLE users ADD COLOMN name VARCHAR(20);
+
+ALTER TABLE users DROP COLOMN name;
+
+ALTER TABLE users RENAME name TO fullname;
+
+ALTER TABLE users ALTER COLUMN id TYPE serial;   --> serial is an autoincrementing integer
+
+------------------------------------------------------------------------------------------------
+
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(40));
+
+------------------------------------------------------------------------------------------------
+
+SELECT DISTINCT name FROM users;
+
+SELECT * FROM users LIMIT 2;
+
+SELECT * FROM users ORDER BY (id);
+
+SELECT * FROM users ORDER BY (id) LIMIT 2;
+
+SELECT * FROM users ORDER BY (id) DESC;
