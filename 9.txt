@@ -1,0 +1,34 @@
+
+ALL, SOME (ANY):
+
+SELECT name, price FROM products WHERE price > ALL (SELECT price FROM products WHERE department = 'SQL');
+
+SELECT name, price FROM products WHERE price < SOME (SELECT price FROM products WHERE department = 'SQL');
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Correlated subquery:
+
+SELECT name, (SELECT COUNT(*) AS count_order FROM orders AS o1 WHERE o1.product_id = p1.id) FROM products AS p1;
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+A SELECT without a FROM:
+
+SELECT (SELECT MAX(price) FROM products) / (SELECT MIN(price) FROM products);
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+GREATEST, LEAST:
+
+SELECT GREATEST (10,20,30);
+
+SELECT name, weight, GREATEST (30, weight * 2) FROM products;
+
+SELECT name, weight, LEAST (20, weight * 2) FROM products;
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+CASE:
+
+SELECT name, price, CASE WHEN price > 600 THEN 'high' WHEN price > 300 THEN 'medium' ELSE 'cheap' END FROM products;
