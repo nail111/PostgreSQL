@@ -1,0 +1,32 @@
+
+Data types:
+
+Numeric: smallint, integer, bigint, smallserial, serial, bigserial, decimal, numeric, real, double precision, float;
+
+"id" --> serial
+"number without a decimal" --> integer
+"bank balance" --> numeric
+"kilograms, liters" --> double precision
+
+Character: char, varchar, text;
+
+Date, time: '1980-04-22'; 20:34;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Validation:
+
+price INTEGER NOT NULL, name VARCHAR NOT NULL;
+--> If there is already a row with null, then we should: UPDATE products SET price = 99 WHERE price IS NULL;
+--> And then: ALTER TABLE products ALTER COLUMN price SET NOT NULL;
+
+price INTEGER DEFAULT 999;
+
+name VARCHAR NOT NULL UNIQUE;
+--> If there is already duplicate rows, then: UPDATE products SET name = 'Another' WHERE id = 5;
+--> And then: ALTER TABLE products ADD UNIQUE (name);
+
+--> If we want to remove validation, then: ALTER TABLE products DROP CONSTRAINT products_name_key;
+
+price INTEGER CHECK (price > 0);
+--> ALTER TABLE products ADD CHECK (price > 0);
