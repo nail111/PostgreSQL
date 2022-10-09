@@ -12,4 +12,3 @@ SELECT COALESCE (null, 'ROLE_ADMIN');
 TRIM: 
 
 CREATE TABLE users (name VARCHAR NOT NULL CHECK (TRIM(name) <> ''));
-
