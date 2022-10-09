@@ -1,0 +1,15 @@
+
+COALESCE: --> Возвращает первый аргумент, отличный от null. Если все аргументы будут null, то результат будет null
+
+SELECT COALESCE ('ROLE_USER', 'ROLE_ADMIN');
+
+Этот запрос вернёт ROLE_USER, если оно не равно null, либо ROLE_ADMIN если первое выражение null:
+
+SELECT COALESCE (null, 'ROLE_ADMIN');
+
+------------------------------------------------------------------------------------------------------------------------
+
+TRIM: 
+
+CREATE TABLE users (name VARCHAR NOT NULL CHECK (TRIM(name) <> ''));
+
