@@ -12,3 +12,14 @@ SELECT COALESCE (null, 'ROLE_ADMIN');
 TRIM: 
 
 CREATE TABLE users (name VARCHAR NOT NULL CHECK (TRIM(name) <> ''));
+
+------------------------------------------------------------------------------------------------------------------------
+
+INDEX:
+
+CREATE INDEX [index_name] ON users (username);
+
+DROP INDEX [index_name];
+
+--> Postgres automatically creates an index for the primary key column of every table.
+--> Postgres automatically creates an index for any 'unique' constraint.
